@@ -1,0 +1,225 @@
+:root {
+  --primary-color: #4CAF50;
+  --primary-dark: #388E3C;
+  --danger-color: #F44336;
+  --danger-dark: #D32F2F;
+  --bg-color: #F5F5F5;
+  --text-color: #333333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  touch-action: manipulation; /* ダブルタップズーム防止など */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#header-logo {
+  height: 40px;
+  object-fit: contain;
+}
+
+#settings-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.character-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#kappa-img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+#kappa-img.happy {
+  animation: bounce 0.5s ease infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-20px); }
+}
+
+#status-message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  min-height: 2.5rem;
+}
+
+.main-action {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.giant-btn {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 3.5rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2), inset 0 -8px 0 rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.giant-btn:active {
+  transform: translateY(8px);
+  box-shadow: 0 0px 0px rgba(0,0,0,0.2), inset 0 -4px 0 rgba(0,0,0,0.1);
+}
+
+.giant-btn:disabled {
+  background-color: #BDBDBD;
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+footer {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+.danger-btn {
+  width: 100%;
+  max-width: 400px;
+  padding: 1.5rem;
+  background-color: var(--danger-color);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.danger-btn:active {
+  background-color: var(--danger-dark);
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.secondary-btn {
+  background-color: #E0E0E0;
+  color: #333;
+}
