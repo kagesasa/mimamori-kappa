@@ -15,6 +15,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const statusMessage = document.getElementById('status-message');
   const kappaImg = document.getElementById('kappa-img');
 
+  const tosModal = document.getElementById('tos-modal');
+  const tosAgreeCheckbox = document.getElementById('tos-agree-checkbox');
+  const tosStartBtn = document.getElementById('tos-start-btn');
+
+  // Check TOS Agreement
+  const tosAgreed = localStorage.getItem('mk_tos_agreed');
+  if (!tosAgreed) {
+    tosModal.classList.remove('hidden');
+  }
+
+  tosAgreeCheckbox.addEventListener('change', (e) => {
+    tosStartBtn.disabled = !e.target.checked;
+  });
+
+  tosStartBtn.addEventListener('click', () => {
+    localStorage.setItem('mk_tos_agreed', 'true');
+    tosModal.classList.add('hidden');
+  });
+
   // Load settings
   let senderEmail = localStorage.getItem('mk_sender_email') || '';
   let notificationEmail = localStorage.getItem('mk_notification_email') || '';
